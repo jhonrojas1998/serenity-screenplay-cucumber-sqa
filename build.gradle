@@ -1,0 +1,65 @@
+defaultTasks 'clean', 'test', 'aggregate'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:4.2.13"
+        classpath "net.serenity-bdd:serenity-single-page-report:4.2.13"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.serenity-gradle-plugin'
+
+dependencies {
+    implementation 'net.serenity-bdd:serenity-core:4.2.13'
+    implementation 'net.serenity-bdd:serenity-junit:4.2.13' // ✅ Cambiado a JUnit 4
+    implementation 'net.serenity-bdd:serenity-cucumber:4.2.13'
+    implementation 'net.serenity-bdd:serenity-screenplay:4.2.13'
+    implementation 'net.serenity-bdd:serenity-screenplay-webdriver:4.2.13'
+    implementation 'net.serenity-bdd:serenity-rest-assured:4.2.13'
+    implementation 'org.slf4j:slf4j-api:2.0.7'
+    implementation 'org.slf4j:slf4j-simple:2.0.7'
+
+    testImplementation 'io.cucumber:cucumber-java:7.11.2'
+    testImplementation 'io.cucumber:cucumber-junit:7.11.2'
+    testImplementation 'org.assertj:assertj-core:3.23.1'
+    testImplementation 'junit:junit:4.13.2' // ✅ Se agregó JUnit 4
+    implementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
+}
+
+tasks.named("checkOutcomes") {
+    dependsOn("reports")
+}
+
+tasks.named("reports") {
+    mustRunAfter("aggregate")
+}
+
+test {
+    useJUnit() // ✅ Se fuerza JUnit 4 en lugar de JUnit 5
+    systemProperty "file.encoding", "UTF-8"
+    systemProperty "feature.file.encoding", "UTF-8"
+    systemProperty "cucumber.options", System.getProperty("cucumber.options", "")
+    testLogging.showStandardStreams = true
+    finalizedBy "aggregate"
+}
+
+serenity {
+    reports = ["single-page-html"]
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy aggregate, reports

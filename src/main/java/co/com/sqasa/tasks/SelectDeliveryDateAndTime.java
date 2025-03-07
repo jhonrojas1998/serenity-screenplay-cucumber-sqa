@@ -4,8 +4,14 @@ import co.com.sqasa.userinterfaces.DeliveryFormPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import net.serenitybdd.screenplay.questions.Text;
+import net.serenitybdd.screenplay.waits.WaitUntil;
+import org.openqa.selenium.WebElement;
+
+
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class SelectDeliveryDateAndTime implements Task {
 
@@ -18,9 +24,14 @@ public class SelectDeliveryDateAndTime implements Task {
                 Click.on(DeliveryFormPage.DELIVERY_DATE),
                 Click.on(DeliveryFormPage.DELIVERY_DAY.of("21")),
 
+
                 // Seleccionar el horario de entrega
-                SelectFromOptions.byVisibleText("Entre 9:00 a.m. y 1:00 pm. (Cierra 11:00 am del mismo día)")
-                        .from(DeliveryFormPage.DELIVERY_SCHEDULE)
+                Click.on(DeliveryFormPage.DELIVERY_SCHEDULE),
+                SelectFromOptions.byIndex(1).from(DeliveryFormPage.DELIVERY_SCHEDULE), // Selecciona la segunda opción
+                Click.on(DeliveryFormPage.CONFIRM_BUTTON),
+
+                WaitUntil.the(DeliveryFormPage.DELIVERY_SCHEDULE, isVisible()).forNoMoreThan(10).seconds()
+
         );
     }
 

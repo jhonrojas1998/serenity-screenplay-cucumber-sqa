@@ -37,6 +37,7 @@ public class DeliveryFormPage {
     public static final Target DELIVERY_SCHEDULE = Target.the("Campo horario de entrega")
             .located(By.id("order_additional_time"));
 
+
     public static final Target OBSERVATIONS = Target.the("Campo observaciones")
             .located(By.id("order_additional_card_message"));
 

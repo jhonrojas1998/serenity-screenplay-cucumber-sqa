@@ -1,3 +1,8 @@
+# Autor
+Jhon Hader Rojas Cabrera
+
+![ Mi Foto ](C:\Users\Universal_Tech\Downloads\mi-foto.jpg.jpeg)
+
 # Automatización de Pruebas con Serenity BDD y Screenplay
 
 ## Descripción
@@ -14,21 +19,36 @@ Este proyecto implementa pruebas automatizadas utilizando **Serenity BDD** con e
 ## Estructura del Proyecto
 ```
 serenity-screenplay-cucumber/
-│── src/
-│   ├── main/java/co/com/ecommerce/
-│   │   ├── tasks/           # Tareas que realiza el actor
-│   │   ├── interactions/    # Interacciones reutilizables
-│   │   ├── questions/       # Validaciones y verificaciones
-│   │   ├── userinterfaces/  # Mapeo de elementos UI
-│   │   ├── models/          # Modelos de datos
-│   ├── test/java/co/com/ecommerce/
-│   │   ├── runners/         # Runners de Cucumber
-│   │   ├── stepdefinitions/ # Definiciones de pasos
-│   ├── resources/features/  # Archivos feature
-│── build.gradle.kts
-│── settings.gradle.kts
-│── README.md
-│── .gitignore
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── co.com.sqasa
+│   │   │       ├── exceptions
+│   │   │       ├── interactions
+│   │   │       ├── models
+│   │   │       ├── questions
+│   │   │       ├── tasks
+│   │   │       ├── userinterfaces
+│   │   │       ├── utils
+│   │   ├── resources
+│   ├── test
+│   │   ├── java
+│   │   │   └── co.com.sqasa
+│   │   │       ├── runners
+│   │   │       ├── stepdefinitions
+│   │   ├── resources
+│   │       ├── features
+│   │       ├── serenity.conf
+├── target
+├── .gitignore
+├── build.gradle
+├── gradlew
+├── gradlew.bat
+├── mi-foto.jpg
+├── readme.md
+├── settings.gradle
+└── External Libraries
+
 ```
 
 ## Instalación y Ejecución
@@ -44,7 +64,7 @@ gradle clean test aggregate
 ```
 Ejecutar un escenario específico:
 ```sh
-gradle clean test --tests "co.com.ecommerce.runners.AddToCartRunner"
+gradle clean test --tests "co.com.sqasa.runners.AddToCartRunner"
 ```
 
 ## Reportes

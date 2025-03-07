@@ -1,16 +1,19 @@
 package co.com.sqasa.stepdefinitions;
 
-import co.com.sqasa.questions.OrderSummary;
+import co.com.sqasa.questions.OrderSummaryText;
 import co.com.sqasa.tasks.*;
 import co.com.sqasa.userinterfaces.DeliveryFormPage;
+import co.com.sqasa.userinterfaces.OrderSummaryPage;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class AddToCartStepDefinitions {
@@ -72,9 +75,16 @@ public class AddToCartStepDefinitions {
     }
 
 
-  @Then("el sistema muestra el resumen de la compra")
-public void verificaResumenCompra() {
-     OnStage.theActorInTheSpotlight().should(
-             seeThat("Resumen de la compra", OrderSummary.isVisible(), equalTo(true)));}}
+    @Then("el sistema muestra el resumen de la compra")
+    public void verificaResumenCompra() {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                WaitUntil.the(OrderSummaryPage.ORDER_SUMMARY_TITLE, isVisible()).forNoMoreThan(10).seconds()
+        );
+
+        OnStage.theActorInTheSpotlight().should(
+                seeThat("Resumen de la compra", OrderSummaryText.value(), equalTo("Resumen de la compra"))
+        );
+    }
 
 
+}

@@ -226,7 +226,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 06-03-2025 14:26:56</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 06-03-2025 20:00:59</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -317,48 +317,48 @@
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>mar. 06, 2025 14:26:37</td>
+                    <td>mar. 06, 2025 20:00:06</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>mar. 06, 2025 14:26:47</td>
+                    <td>mar. 06, 2025 20:00:52</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>10s</td>
+                    <td>45s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>10s</td>
+                    <td>45s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>10s</td>
+                    <td>45s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>10s</td>
+                    <td>45s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td>10s</td>
+                    <td>45s</td>
                 </tr>
                 </tbody>
             </table>
@@ -408,7 +408,7 @@
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>10s</td>
+                    <td>45s</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -418,7 +418,7 @@
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>10s</td>
+                    <td>45s</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -429,30 +429,30 @@
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>10s</td>
+                    <td>45s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>mar. 06, 2025 14:26:37</td>
+                    <td>mar. 06, 2025 20:00:06</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>10s</td>
+                    <td>45s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>mar. 06, 2025 14:26:47</td>
+                    <td>mar. 06, 2025 20:00:52</td>
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td>10s</td>
+                    <td>45s</td>
                 </tr>
                 </tbody>
             </table>
@@ -489,11 +489,17 @@
                                                                         </td>
                                                                         <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-windows' title='Windows'></i></span><span style="display:none">Chrome,windows</span>
                                                                         </td>
-                                                                        <td>1</td>
+                                                                        <td>7</td>
                                                                         <td>Given el usuario inicia sesion con &quot;&lt;usuario&gt;&quot; y &quot;&lt;contraseña&gt;&quot;
+When selecciona el primer producto disponible con cantidad dos y lo anade al carrito
+And selecciona el producto Caja Agata  rosas con cantidad siete y lo anade al carrito
+And diligencia el formulario de informacion de entrega con &quot;&lt;nombre_completo&gt;&quot;, &quot;&lt;municipio&gt;&quot;, &quot;&lt;dirección&gt;&quot;, &quot;&lt;barrio&gt;&quot;, &quot;&lt;teléfono&gt;&quot;, &quot;&lt;mensaje_tarjeta&gt;&quot;, &quot;&lt;firma&gt;&quot; y &quot;&lt;observaciones&gt;&quot;
+And selecciona la fecha y el horario de entrega
+And hace clic en Realizar pedido
+Then el sistema muestra el resumen de la compra
 </td>
-                                                                        <td data-order="1741289197">14:26:37</td>
-                                                                        <td>10s 718ms</td>
+                                                                        <td data-order="1741309206">20:00:06</td>
+                                                                        <td>45s 905ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -756,7 +762,7 @@
             datasets: [{
                 label: 'Number of tests per duration',
                 fill: false,
-                data: ['0','0','1','0','0','0','0','0'],
+                data: ['0','0','0','1','0','0','0','0'],
                 backgroundColor: 'rgba(83, 146, 255,0.5)',
                 borderColor: 'rgba(83, 146, 255, 1)',
             }]
